@@ -1,0 +1,23 @@
+<form class="search">
+  @if(isFound){
+    <div class="search__top">
+      <mat-checkbox class="search__top_checkbox">Мои</mat-checkbox>
+      <input class="search__top_input" placeholder="Автор">
+    </div>
+    <div class="search__middle">
+      <mat-label class="search__middle_label">Сортировать по:</mat-label>
+      <input class="search__middle_input" matInput [matDatepicker]="picker" placeholder="дате">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker class="search__middle_datepicker" #picker></mat-datepicker>
+    </div>
+    <div class="search__bottom">
+      @for(checkbox of checkboxTitles; track checkbox){
+        <mat-checkbox class="search__bottom_checkbox">{{ checkbox }}</mat-checkbox>
+      } @empty {
+        <div> there is no items</div>
+      }
+      </div>
+  } @else {
+    <div class="search_not-found">{{ notFound }}</div>
+  }
+</form>

@@ -1,0 +1,8 @@
+node_modules
+.angular/
+.idea/
+.idea/vcs.xml
+
+
+dist/
+coverage/

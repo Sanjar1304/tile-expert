@@ -1,0 +1,66 @@
+@import "../../visual/mixin";
+
+:host {
+  .search {
+    width: 400px;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+    &__top {
+      @include flex(row, center, flex-start);
+      gap: 1rem;
+      width: 100%;
+
+
+      &_input {
+        width: 300px;
+        height: 30px;
+        padding-left: 10px;
+        border-radius: 3px;
+        background-color: #ffffff;
+        border: 1px solid lightgray;
+
+        &:focus-visible{
+          outline: none;
+        }
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+    }
+
+    &__middle {
+      @include flex(row, center, flex-start);
+      gap: 1rem;
+      width: 100%;
+
+      &_label {
+        padding-left: 10px;
+      }
+
+      &_input {
+        height: 30px;
+        padding-left: 7px;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+
+        &:focus-visible {
+          outline: none;
+        }
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+    }
+
+    &__bottom {
+      @include flex(row, flex-start, space-between);
+      width: 100%;
+    }
+
+    &_not-found {
+      width: 100%;
+    }
+  }
+}

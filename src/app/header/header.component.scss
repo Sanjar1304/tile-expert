@@ -1,0 +1,749 @@
+@import "../../visual/mixin";
+
+:host {
+  .header {
+    background-color: #1F77C7;
+
+    &__content {
+      @include flex(row, center, space-between);
+      width: 96%;
+      padding: 1.5rem;
+
+      &__burger-menu {
+        display: none;
+      }
+
+      &__logo {
+        margin-top: 15px;
+        width: 195px;
+        height: 34px;
+      }
+
+      &__nav {
+        @include flex(row, center, space-between);
+        gap: 2rem;
+        position: relative;
+
+        &__wrapper {
+          @include flex(row, center, center);
+          gap: 2rem;
+
+          &__item {
+            @include flex(row, center, center);
+            color: #fff;
+            font-size: 18px;
+            font-weight: normal;
+          }
+
+          &_no-menu {
+            @include flex(row, center, center);
+            font-size: 1rem;
+            color: #ffffff;
+          }
+        }
+
+        &__form {
+          @include flex(row, stretch, center);
+          width: 878px;
+
+          &__wrapper {
+            @include flex(row, center, space-between);
+            width: 100%;
+            background-color: #ffffff;
+
+            &_search {
+              text-align: center;
+              width: 45px;
+              color: #cccc;
+            }
+
+            &_input {
+              width: 100%;
+              border: none;
+
+              &:focus-visible {
+                outline: none;
+              }
+            }
+
+            &_close {
+              width: 45px;
+              color: grey;
+            }
+          }
+
+          &_button {
+            height: 50px;
+            border: none;
+            color: #ffffff;
+            background-color: #FFC200;
+          }
+        }
+
+        &_modal {
+          position: absolute;
+          top: 3.5rem;
+          left: 0;
+        }
+      }
+
+      &__icons {
+        @include flex(row, center, space-between);
+        width: 120px;
+        color: #fff;
+        gap: 1rem;
+
+        &__warning {
+          position: relative;
+
+          &_info {
+            @include flex(row, center, center);
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            padding: 3px;
+            top: -10px;
+            right: -4px;
+            font-size: 12px;
+            line-height: 20px;
+            color: #ffffff;
+            background-color: #FF2D82;
+            border-radius: 3px;
+            z-index: 999;
+          }
+        }
+
+        .man {
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    // ====== MEDIA QUERIES FOR MOBILE SCREENS: => SIZE BETWEEN 414px AND 480px ====== //
+    @media screen and (min-width: 414px) and (max-width: 480px){
+      &__content {
+        width: 90%;
+        flex-wrap: wrap;
+
+        &__burger-menu {
+          @include flex(row, center, center);
+          color: #fff;
+          font-size: 24px;
+          cursor: pointer;
+          margin-bottom: 10px;
+
+          &_icon {
+            margin-right: 10px;
+          }
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__logo {
+          order: 2;
+          margin-right: auto;
+          position: absolute;
+          left: 4.5rem;
+          top: .6rem;
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__nav {
+          @include flex(row, center, center);
+          width: 100%;
+          position: relative;
+
+          &__wrapper {
+            @include flex(row, center, center);
+            gap: 2rem;
+
+            &__item {
+              display: none; /* Hide all nav items by default */
+            }
+
+            &__item:nth-child(n+1):nth-child(-n+6):nth-child(-n+8) {
+              display: none; /* Display none for the first six nav items */
+            }
+
+            &__item:nth-child(7) {
+              display: block; /* Display search icon */
+              position: absolute;
+              right: 0;
+              top: -2rem;
+            }
+          }
+
+          &__form {
+            width: 100%;
+
+            &_input {
+              border: none;
+              padding-left: 45px;
+              background-image: url("/assets/search_icon.png");
+              background-repeat: no-repeat;
+              background-position: 10px;
+              background-color: #ffffff;
+              background-size: 20px;
+            }
+
+            &:focus-visible {
+              outline: none;
+            }
+
+            &_button {
+              height: 50px;
+              border: none;
+              color: #ffffff;
+              background-color: #FFC200;
+            }
+          }
+
+          &_modal {
+            &.hidden {
+              display: none;
+            }
+          }
+        }
+
+        &__icons {
+          @include flex(row, center, space-evenly);
+          order: 1; /* Push the icons section to the top */
+          margin-top: 2rem;
+          width: 100%;
+
+          &.hidden {
+            display: none;
+          }
+
+          &__warning {
+            position: relative;
+
+            /* Adjust order for warning info */
+            &_info {
+              @include flex(row, center, center);
+              order: 2; /* Always keep the info above warning */
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              padding: 3px;
+              font-size: 12px;
+              line-height: 20px;
+            }
+          }
+
+          /* Adjust order for man image */
+          .man {
+            order: 3; /* Push man image to the bottom */
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    // ====== MEDIA QUERIES FOR MOBILE SCREENS: => SIZE BETWEEN 481px AND 600px ====== //
+    @media screen and (min-width: 481px) and (max-width: 600px){
+      .header__content {
+        width: 92%;
+        flex-wrap: wrap;
+
+        &__burger-menu {
+          @include flex(row, center, center);
+          color: #fff;
+          font-size: 24px;
+          cursor: pointer;
+          margin-bottom: 10px;
+
+          &_icon {
+            margin-right: 10px;
+          }
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__logo {
+          order: 2;
+          margin-right: auto;
+          position: absolute;
+          left: 4.5rem;
+          top: .6rem;
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__nav {
+          @include flex(row, center, center);
+          width: 100%;
+
+          &__wrapper {
+            @include flex(row, center, center);
+            gap: 2rem;
+
+            &__item {
+              display: none; /* Hide all nav items by default */
+            }
+
+            &__item:nth-child(n+1):nth-child(-n+6):nth-child(-n+8) {
+              display: none; /* Display none for the first six nav items */
+            }
+
+            &__item:nth-child(7) {
+              display: block; /* Display search icon */
+              position: absolute;
+              right: 0;
+              top: -2rem;
+            }
+          }
+
+          &__form {
+            width: 100%;
+
+            &_input {
+              border: none;
+              padding-left: 45px;
+              background-image: url("/assets/search_icon.png");
+              background-repeat: no-repeat;
+              background-position: 10px;
+              background-color: #ffffff;
+              background-size: 20px;
+            }
+
+            &:focus-visible {
+              outline: none;
+            }
+
+            &_button {
+              height: 50px;
+              border: none;
+              color: #ffffff;
+              background-color: #FFC200;
+            }
+          }
+        }
+
+        &__icons {
+          @include flex(row, center, space-evenly);
+          order: 1; /* Push the icons section to the top */
+          margin-top: 2rem;
+          width: 100%;
+          height: 50px;
+
+          &.hidden {
+            display: none;
+          }
+
+          &__warning {
+            position: relative;
+
+            /* Adjust order for warning */
+            &_info {
+              @include flex(row, center, center);
+              order: 2; /* Always keep the warning info above warning */
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              padding: 3px;
+              font-size: 12px;
+              line-height: 20px;
+            }
+          }
+
+          /* Adjust order for man image */
+          .man {
+            order: 3; /* Push man image to the bottom */
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    // ====== MEDIA QUERIES FOR TABLET SCREENS: => SIZE BETWEEN 601px AND 769px ====== //
+    @media screen and (min-width: 601px) and (max-width: 769px){
+      .header__content {
+        width: 93%;
+        flex-wrap: wrap;
+
+        &__burger-menu {
+          @include flex(row, center, center);
+          color: #fff;
+          font-size: 24px;
+          cursor: pointer;
+          margin-bottom: 10px;
+
+          &_icon {
+            margin-right: 10px;
+          }
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__logo {
+          order: 2;
+          margin-right: auto;
+          position: absolute;
+          left: 4.5rem;
+          top: .6rem;
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__nav {
+          @include flex(row, center, center);
+          width: 100%;
+
+          &__wrapper {
+            @include flex(row, center, center);
+            gap: 2rem;
+
+            &__item {
+              display: none; /* Hide all nav items by default */
+            }
+
+            &__item:nth-child(n+1):nth-child(-n+6):nth-child(-n+8) {
+              display: none; /* Display none for the first six nav items */
+            }
+
+            &__item:nth-child(7) {
+              display: block; /* Display search icon */
+              position: absolute;
+              top: -2rem;
+              right: 0;
+            }
+          }
+
+          &__form {
+            width: 100%;
+
+            &_input {
+              border: none;
+              padding-left: 45px;
+              background-image: url("/assets/search_icon.png");
+              background-repeat: no-repeat;
+              background-position: 10px;
+              background-color: #ffffff;
+              background-size: 20px;
+            }
+
+            &:focus-visible {
+              outline: none;
+            }
+
+            &_button {
+              height: 50px;
+              border: none;
+              color: #ffffff;
+              background-color: #FFC200;
+            }
+          }
+        }
+
+        &__icons {
+          @include flex(row, center, space-evenly);
+          order: 1; /* Push the icons section to the top */
+          margin-top: 2rem;
+          width: 100%;
+          height: 50px;
+
+          &.hidden {
+            display: none;
+          }
+
+          &__warning {
+            position: relative;
+
+            /* Adjust order for info */
+            &_info {
+              @include flex(row, center, center);
+              order: 2; /* Always keep the info above warning */
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              padding: 3px;
+              font-size: 12px;
+              line-height: 20px;
+            }
+          }
+
+          /* Adjust order for man image */
+          .man {
+            order: 3; /* Push man image to the bottom */
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    // ====== MEDIA QUERIES FOR TABLET SCREENS: => SIZE BETWEEN 770px AND 1023px ====== //
+    @media screen and (min-width: 770px) and (max-width: 1023px){
+      .header__content {
+        width: 95%;
+        flex-wrap: wrap;
+
+        &__burger-menu {
+          @include flex(row, center, center);
+          color: #fff;
+          font-size: 24px;
+          cursor: pointer;
+          margin-bottom: 10px;
+
+          &_icon {
+            margin-right: 10px;
+          }
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__logo {
+          order: 2;
+          margin-right: auto;
+          position: absolute;
+          left: 4.5rem;
+          top: .6rem;
+
+          &.hidden {
+            display: none;
+          }
+        }
+
+        &__nav {
+          @include flex(row, center, center);
+          width: 100%;
+
+          &__wrapper {
+            @include flex(row, center, center);
+            gap: 2rem;
+
+            &__item {
+              display: none; /* Hide all nav items by default */
+            }
+
+            &__item:nth-child(n+1):nth-child(-n+6):nth-child(-n+8) {
+              display: none; /* Display none for the first six nav items */
+            }
+
+            &__item:nth-child(7) {
+              display: block; /* Display search icon */
+              position: absolute;
+              top: -2rem;
+              right: 0;
+            }
+          }
+
+          &__form {
+            width: 100%;
+
+            &_input {
+              border: none;
+              padding-left: 45px;
+              background-image: url("/assets/search_icon.png");
+              background-repeat: no-repeat;
+              background-position: 10px;
+              background-color: #ffffff;
+              background-size: 20px;
+            }
+
+            &:focus-visible {
+              outline: none;
+            }
+
+            &_button {
+              height: 50px;
+              border: none;
+              color: #ffffff;
+              background-color: #FFC200;
+            }
+          }
+        }
+
+        &__icons {
+          @include flex(row, center, space-evenly);
+          order: 1; /* Push the icons section to the top */
+          margin-top: 2rem;
+          width: 100%;
+          height: 50px;
+
+          &.hidden {
+            display: none;
+          }
+
+          &__warning {
+            position: relative;
+
+            /* Adjust order for info */
+            &_info {
+              @include flex(row, center, center);
+              order: 2; /* Always keep the info above warning */
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              padding: 3px;
+              font-size: 12px;
+              line-height: 20px;
+            }
+          }
+
+          /* Adjust order for man image */
+          .man {
+            order: 3; /* Push man image to the bottom */
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    // ====== MEDIA QUERIES FOR DESKTOP SCREENS: => SIZE BETWEEN 1024px AND 1919px ====== //
+    @media screen and (min-width: 1024px) and (max-width: 1919px) {
+      &__content {
+        @include flex(row, center, space-between);
+        width: 96%;
+        gap: 2.5rem;
+
+        &__burger-menu {
+          display: none;
+        }
+
+        &__logo {
+          margin-top: 15px;
+          height: 34px;
+        }
+
+        &__nav {
+          @include flex(row, center, center);
+          gap: 1rem;
+
+          &__wrapper {
+            gap: .5rem;
+
+            &__item {
+              font-size: 14px;
+            }
+          }
+
+          &__form {
+            width: 577px;
+
+            &_input {
+              width: 100%;
+              border: none;
+              padding-left: 45px;
+              background-image: url("/assets/search_icon.png");
+              background-repeat: no-repeat;
+              background-position: 10px;
+              background-color: #ffffff;
+              background-size: 20px;
+            }
+
+            &_input-close {
+
+            }
+
+            &:focus-visible {
+              outline: none;
+            }
+
+            &_button {
+              height: 50px;
+              border: none;
+              color: #ffffff;
+              background-color: #FFC200;
+            }
+          }
+        }
+
+        &__icons {
+          @include flex(row, center, space-between);
+          gap: 1rem;
+          color: #fff;
+          position: relative;
+
+          mat-icon{
+            overflow: visible;
+          }
+
+          &__warning {
+            position: relative;
+
+            &_info {
+              @include flex(row, center, center);
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              padding: 3px;
+              top: -10px;
+              right: -8px;
+              font-size: 12px;
+              line-height: 20px;
+              color: #ffffff;
+              background-color: #FF2D82;
+              border-radius: 3px;
+              z-index: 999;
+            }
+          }
+
+          .man {
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    // ====== MEDIA QUERIES FROM 1920PX TO LARGER SCREENS ====== //
+    @media screen and (min-width: 1920px) {
+      &__content {
+        display: grid;
+        grid-template-columns: minmax(150px,200px) minmax(850px, 2000px) minmax(100px, 120px);
+        gap: 5rem;
+        width: 97.5%;
+
+        &__nav {
+          @include flex(row, center, space-between);
+
+          &__wrapper {
+            @include flex(row, center, center);
+            gap: 2rem;
+
+            &_no-menu {
+              @include flex(row, center, center);
+              font-size: 1rem;
+              color: #ffffff;
+            }
+          }
+
+          &__form {
+            width: 822px;
+
+            &_input {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

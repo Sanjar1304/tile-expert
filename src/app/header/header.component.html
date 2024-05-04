@@ -1,0 +1,75 @@
+<header class="header">
+  <div class="header__content container">
+
+    <div [ngClass]="['header__content__burger-menu', searchFormVisible ? 'hidden' : '']">
+      <mat-icon class="header__content__burger-menu_icon">
+        menu
+      </mat-icon>
+    </div>
+
+    <div [ngClass]="['header__content__logo', searchFormVisible ? 'hidden' : '']">
+      <img src="./assets/logo.svg" alt="logo icon" class="header__content__logo_item">
+    </div>
+
+    <div class="header__content__nav">
+      @if(!searchFormVisible){
+        <div class="header__content__nav__wrapper">
+          @for(menu of menuItems; track menu ){
+            <div class="header__content__nav__wrapper__item">
+              {{menu}}
+              @if($index !== 1){
+                <mat-icon class="header__content__nav__wrapper__item_icon">
+                  arrow_drop_down
+                </mat-icon>
+              }
+            </div>
+          } @empty {
+            <div class="header__content__nav__wrapper_no-menu">There is no menus</div>
+          }
+          <div class="header__content__nav__wrapper__item">
+            @if (!searchFormVisible){
+              <mat-icon class="header__content__nav__wrapper__item_icon" (click)="toggleSearchForm()">
+                search
+              </mat-icon>
+            }
+          </div>
+          <div class="header__content__nav__wrapper__item">
+            <mat-icon class="header__content__nav__wrapper__item_icon ">
+              add_circle
+            </mat-icon>
+          </div>
+        </div>
+      } @else {
+        <form [formGroup]="form" class="header__content__nav__form">
+          <div class="header__content__nav__form__wrapper">
+            <mat-icon class="header__content__nav__form__wrapper_search">
+              search
+            </mat-icon>
+            <input type="text" class="header__content__nav__form__wrapper_input" placeholder="Search..." formControlName="search" >
+            <mat-icon class="header__content__nav__form__wrapper_close" (click)="resetInput()">
+              close
+            </mat-icon>
+          </div>
+          <button type="submit" class="header__content__nav__form_button" (click)="toggleSearchForm()">НАЙТИ</button>
+        </form>
+        @if(isSearchModalVisible){
+          <app-search-modal [ngClass]="['header__content__nav_modal', isSearchModalVisible ? 'hidden' : '']"
+                            [searchFormValue]="form.get('search')?.value"></app-search-modal>
+        }
+      }
+    </div>
+
+    <div [ngClass]="['header__content__icons', searchFormVisible ? 'hidden' : '']">
+      <mat-icon class="header__content__icons_item">
+        mail
+      </mat-icon>
+      <div class="header__content__icons__warning">
+        <div class="header__content__icons__warning_info">4</div>
+        <mat-icon class="header__content__icons_item">
+          notifications
+        </mat-icon>
+      </div>
+      <img src="./assets/man.jpg" alt="" class="header__content__icons_item man" >
+    </div>
+  </div>
+</header>
