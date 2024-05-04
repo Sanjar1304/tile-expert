@@ -1,8 +1,9 @@
 @import "../../visual/mixin";
+@import "../../visual/colors";
 
 :host {
   .header {
-    background-color: #1F77C7;
+    background-color: $main-blue;
 
     &__content {
       @include flex(row, center, space-between);
@@ -17,6 +18,10 @@
         margin-top: 15px;
         width: 195px;
         height: 34px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       &__nav {
@@ -30,15 +35,19 @@
 
           &__item {
             @include flex(row, center, center);
-            color: #fff;
+            color: $main-white;
             font-size: 18px;
             font-weight: normal;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
 
           &_no-menu {
             @include flex(row, center, center);
             font-size: 1rem;
-            color: #ffffff;
+            color: $main-white;
           }
         }
 
@@ -49,12 +58,12 @@
           &__wrapper {
             @include flex(row, center, space-between);
             width: 100%;
-            background-color: #ffffff;
+            background-color: $main-white;
 
             &_search {
               text-align: center;
               width: 45px;
-              color: #cccc;
+              color: $border-grey;
             }
 
             &_input {
@@ -68,15 +77,19 @@
 
             &_close {
               width: 45px;
-              color: grey;
+              color: $dark-grey;
+
+              &:hover {
+                cursor: pointer;
+              }
             }
           }
 
           &_button {
             height: 50px;
             border: none;
-            color: #ffffff;
-            background-color: #FFC200;
+            color: $main-white;
+            background-color: $main-yellow;
           }
         }
 
@@ -90,8 +103,14 @@
       &__icons {
         @include flex(row, center, space-between);
         width: 120px;
-        color: #fff;
+        color: $main-white;
         gap: 1rem;
+
+        &_item {
+          &:hover {
+            cursor: pointer;
+          }
+        }
 
         &__warning {
           position: relative;
@@ -106,8 +125,8 @@
             right: -4px;
             font-size: 12px;
             line-height: 20px;
-            color: #ffffff;
-            background-color: #FF2D82;
+            color: $main-white;
+            background-color: $main-pink;
             border-radius: 3px;
             z-index: 999;
           }
@@ -129,7 +148,7 @@
 
         &__burger-menu {
           @include flex(row, center, center);
-          color: #fff;
+          color: $main-white;
           font-size: 24px;
           cursor: pointer;
           margin-bottom: 10px;
@@ -200,8 +219,8 @@
             &_button {
               height: 50px;
               border: none;
-              color: #ffffff;
-              background-color: #FFC200;
+              color: $main-white;
+              background-color: $main-yellow;
             }
           }
 
@@ -257,7 +276,7 @@
 
         &__burger-menu {
           @include flex(row, center, center);
-          color: #fff;
+          color: $main-white;
           font-size: 24px;
           cursor: pointer;
           margin-bottom: 10px;
@@ -316,7 +335,7 @@
               background-image: url("/assets/search_icon.png");
               background-repeat: no-repeat;
               background-position: 10px;
-              background-color: #ffffff;
+              background-color: $main-white;
               background-size: 20px;
             }
 
@@ -327,8 +346,8 @@
             &_button {
               height: 50px;
               border: none;
-              color: #ffffff;
-              background-color: #FFC200;
+              color: $main-white;
+              background-color: $main-yellow;
             }
           }
         }
@@ -379,7 +398,7 @@
 
         &__burger-menu {
           @include flex(row, center, center);
-          color: #fff;
+          color: $main-white;
           font-size: 24px;
           cursor: pointer;
           margin-bottom: 10px;
@@ -438,7 +457,7 @@
               background-image: url("/assets/search_icon.png");
               background-repeat: no-repeat;
               background-position: 10px;
-              background-color: #ffffff;
+              background-color: $main-white;
               background-size: 20px;
             }
 
@@ -449,8 +468,8 @@
             &_button {
               height: 50px;
               border: none;
-              color: #ffffff;
-              background-color: #FFC200;
+              color: $main-white;
+              background-color: $main-yellow;
             }
           }
         }
@@ -501,7 +520,7 @@
 
         &__burger-menu {
           @include flex(row, center, center);
-          color: #fff;
+          color: $main-white;
           font-size: 24px;
           cursor: pointer;
           margin-bottom: 10px;
@@ -560,7 +579,7 @@
               background-image: url("/assets/search_icon.png");
               background-repeat: no-repeat;
               background-position: 10px;
-              background-color: #ffffff;
+              background-color: $main-white;
               background-size: 20px;
             }
 
@@ -571,8 +590,8 @@
             &_button {
               height: 50px;
               border: none;
-              color: #ffffff;
-              background-color: #FFC200;
+              color: $main-white;
+              background-color: $main-yellow;
             }
           }
         }
@@ -653,7 +672,7 @@
               background-image: url("/assets/search_icon.png");
               background-repeat: no-repeat;
               background-position: 10px;
-              background-color: #ffffff;
+              background-color: $main-white;
               background-size: 20px;
             }
 
@@ -668,8 +687,8 @@
             &_button {
               height: 50px;
               border: none;
-              color: #ffffff;
-              background-color: #FFC200;
+              color: $main-white;
+              background-color: $main-yellow;
             }
           }
         }
@@ -697,8 +716,8 @@
               right: -8px;
               font-size: 12px;
               line-height: 20px;
-              color: #ffffff;
-              background-color: #FF2D82;
+              color: $main-white;
+              background-color: $main-pink;
               border-radius: 3px;
               z-index: 999;
             }
@@ -731,7 +750,7 @@
             &_no-menu {
               @include flex(row, center, center);
               font-size: 1rem;
-              color: #ffffff;
+              color: $main-white;
             }
           }
 

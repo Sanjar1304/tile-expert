@@ -1,10 +1,12 @@
 @import "../../visual/mixin";
+@import "../../visual/colors";
+
 
 :host {
   .search {
     width: 400px;
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: $main-white;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 
     &__top {
@@ -18,14 +20,14 @@
         height: 30px;
         padding-left: 10px;
         border-radius: 3px;
-        background-color: #ffffff;
-        border: 1px solid lightgray;
+        background-color: $main-white;
+        border: 1px solid $border-lightgrey;
 
         &:focus-visible{
           outline: none;
         }
         &::placeholder {
-          color: lightgray;
+          color: $border-lightgrey;
         }
       }
     }
@@ -42,14 +44,14 @@
       &_input {
         height: 30px;
         padding-left: 7px;
-        border: 1px solid lightgray;
+        border: 1px solid $border-lightgrey;
         border-radius: 3px;
 
         &:focus-visible {
           outline: none;
         }
         &::placeholder {
-          color: lightgray;
+          color: $border-lightgrey;
         }
       }
     }
