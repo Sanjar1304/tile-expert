@@ -8,7 +8,7 @@
     &__content {
       @include flex(row, center, space-between);
       width: 96%;
-      padding: 1.5rem;
+      padding: 1rem .7rem;
 
       &__burger-menu {
         display: none;
@@ -143,7 +143,7 @@
     // ====== MEDIA QUERIES FOR MOBILE SCREENS: => SIZE BETWEEN 414px AND 480px ====== //
     @media screen and (min-width: 414px) and (max-width: 480px){
       &__content {
-        width: 90%;
+        width: 95%;
         flex-wrap: wrap;
 
         &__burger-menu {
@@ -223,12 +223,6 @@
               background-color: $main-yellow;
             }
           }
-
-          &_modal {
-            &.hidden {
-              display: none;
-            }
-          }
         }
 
         &__icons {
@@ -271,7 +265,7 @@
     // ====== MEDIA QUERIES FOR MOBILE SCREENS: => SIZE BETWEEN 481px AND 600px ====== //
     @media screen and (min-width: 481px) and (max-width: 600px){
       .header__content {
-        width: 92%;
+        width: 95%;
         flex-wrap: wrap;
 
         &__burger-menu {
@@ -393,7 +387,7 @@
     // ====== MEDIA QUERIES FOR TABLET SCREENS: => SIZE BETWEEN 601px AND 769px ====== //
     @media screen and (min-width: 601px) and (max-width: 769px){
       .header__content {
-        width: 93%;
+        width: 95.5%;
         flex-wrap: wrap;
 
         &__burger-menu {
@@ -515,7 +509,7 @@
     // ====== MEDIA QUERIES FOR TABLET SCREENS: => SIZE BETWEEN 770px AND 1023px ====== //
     @media screen and (min-width: 770px) and (max-width: 1023px){
       .header__content {
-        width: 95%;
+        width: 97%;
         flex-wrap: wrap;
 
         &__burger-menu {
@@ -638,7 +632,7 @@
     @media screen and (min-width: 1024px) and (max-width: 1919px) {
       &__content {
         @include flex(row, center, space-between);
-        width: 96%;
+        width: 97.5%;
         gap: 2.5rem;
 
         &__burger-menu {
@@ -738,7 +732,7 @@
         display: grid;
         grid-template-columns: minmax(150px,200px) minmax(850px, 2000px) minmax(100px, 120px);
         gap: 5rem;
-        width: 97.5%;
+        width: 98.8%;
 
         &__nav {
           @include flex(row, center, space-between);

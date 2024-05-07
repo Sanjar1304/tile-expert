@@ -29,6 +29,10 @@
         &::placeholder {
           color: $border-lightgrey;
         }
+
+        @media screen and (max-width: 480xp) {
+          width: 350px;
+        }
       }
     }
 
@@ -53,16 +57,30 @@
         &::placeholder {
           color: $border-lightgrey;
         }
+
+        @media screen and (max-width: 480px){
+          width: 130px;
+        }
       }
     }
 
     &__bottom {
       @include flex(row, flex-start, space-between);
       width: 100%;
+
+      @media screen and (max-width: 480px) {
+        flex-direction: column;
+      }
     }
 
     &_not-found {
       width: 100%;
     }
+
+    @media screen and (max-width: 480px) {
+      width: 363px;
+    }
   }
+
+
 }
